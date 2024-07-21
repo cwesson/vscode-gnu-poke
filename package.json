@@ -1,10 +1,10 @@
 {
   "name": "gnu-poke",
-  "displayName": "GNU Poke",
-  "description": "Language support for GNU Poke",
+  "displayName": "GNU poke",
+  "description": "Language support for GNU poke",
   "version": "0.0.1",
   "publisher": "conlan-wesson",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "GPL-3.0+",
   "icon": "./images/gnu-poke.png",
   "engines": {
     "vscode": "^1.91.0"
@@ -19,7 +19,7 @@
   "contributes": {
     "languages": [{
       "id": "poke",
-      "aliases": ["Poke", "poke", "GNU Poke"],
+      "aliases": ["Poke", "poke", "GNU poke"],
       "extensions": [".pk"],
       "configuration": "./language-configuration.json"
     }],

@@ -1,9 +1,9 @@
 # GNU Poke Language Support
-GNU Poke language support for VS Code.
+GNU poke language support for VS Code.
 
 ## Features
 
-* GNU Poke syntax highlighting
+* GNU poke syntax highlighting
 
 ## Release Notes
 
