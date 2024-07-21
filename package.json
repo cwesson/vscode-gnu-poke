@@ -1,0 +1,32 @@
+{
+  "name": "gnu-poke",
+  "displayName": "GNU Poke",
+  "description": "Language support for GNU Poke",
+  "version": "0.0.1",
+  "publisher": "conlan-wesson",
+  "license": "SEE LICENSE IN LICENSE",
+  "icon": "./images/gnu-poke.png",
+  "engines": {
+    "vscode": "^1.91.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cwesson/vscode-gnu-poke"
+  },
+  "contributes": {
+    "languages": [{
+      "id": "poke",
+      "aliases": ["Poke", "poke", "GNU Poke"],
+      "extensions": [".pk"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "poke",
+      "scopeName": "source.pk",
+      "path": "./syntaxes/poke.tmLanguage.json"
+    }]
+  }
+}

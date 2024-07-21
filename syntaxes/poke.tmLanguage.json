@@ -1,0 +1,77 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Poke",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#library"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.poke",
+				"match": "\\b(if|else|while|for|return|try|catch|raise|until|assert)\\b"
+			},{
+				"name": "keyword.operator.poke",
+				"match": "\\b(as|in|typeof|isa)\\b"
+			},{
+				"name": "storage.type.poke",
+				"match": "\\b(type|struct|union|unit|void|var|method|fun|any|offset|string)\\b"
+			},{
+				"name": "storage.modifier.poke",
+				"match": "\\b(computed|pinned)\\b"
+			},{
+				"name": "constant.numeric.poke",
+				"match": "\\b-?([0-9_]+|0x[0-9a-fA-F_]+|0b[01_]+)([UuTtlLhH]*)\\b"
+			},{
+				"name": "constant.language.poke",
+				"match": "\\b(OFFSET)\\b"
+			},{
+				"name": "comment.line.double-dash.poke",
+				"match": "\\/\\/.*$\\n?"
+			},{
+				"name": "comment.block.documentation.poke",
+				"begin": "/\\*\\*",
+				"end": "\\*/"
+			},{
+				"name": "comment.block.poke",
+				"begin": "/\\*",
+				"end": "\\*/"
+			},{
+				"name": "keyword.operator.poke",
+				"match": "(\\+|-|/|\\*|%|/\\^|=|==|!=|>=|<=|>|<|#|@|\\.>>|<<\\.|:::|:|;|&|\\||\\^|~|!|,|')"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.poke",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.poke",
+					"match": "\\\\"
+				}
+			]
+		},
+		"library": {
+			"patterns": [
+			{
+				"name": "support.type.poke",
+				"match": "\\b(bit|nibble|uint8|byte|char|uint16|ushort|uint32|uint|uint64|ulong|int8|int16|short|int32|int|int64|long|off64|uoff64)\\b"
+			},{
+				"name": "support.function.poke",
+				"match": "\\b(open|opensub|openproc|close|flush|get_ios|set_ios|iosearch|iolist|openset|iosize|iohandler|ioflags|print|printf|catos|stoca|strtoi|atoi|ltos|stof|stod|reverse|ltrim|rtrim|strchr|strrchr|strstr|strtok|eoffset|with_cur_ios|with_temp_ios|qsort|crc32|alignto)\\b"
+			},{
+				"name": "support.constant.poke",
+				"match": "\\b(b|N|B|kb|Mb|Gb|KB|MB|GB|KiB|MiB|GiB)\\b"
+			}
+		]}
+	},
+	"scopeName": "source.pk"
+}
