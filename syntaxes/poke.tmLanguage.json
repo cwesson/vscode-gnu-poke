@@ -3,6 +3,9 @@
 	"name": "Poke",
 	"patterns": [
 		{
+			"include": "#entities"
+		},
+		{
 			"include": "#keywords"
 		},
 		{
@@ -10,12 +13,36 @@
 		},
 		{
 			"include": "#library"
-		},
-		{
-			"include": "#entities"
 		}
 	],
 	"repository": {
+		"entities": {
+			"patterns": [{
+				"match": "\\b(type)\\s+(\\w+)\\b",
+				"captures": {
+					"1": {"name": "storage.type.poke"},
+					"2": {"name": "entity.name.type.poke"}
+				}
+			},{
+				"match": "\\b(unit)\\s+(\\w+)\\b",
+				"captures": {
+					"1": {"name": "storage.type.poke"},
+					"2": {"name": "entity.name.type.poke"}
+				}
+			},{
+				"match": "\\b(method)\\s+(\\w+)\\b",
+				"captures": {
+					"1": {"name": "storage.type.poke"},
+					"2": {"name": "entity.name.method.poke"}
+				}
+			},{
+				"match": "\\b(fun)\\s+(\\w+)\\b",
+				"captures": {
+					"1": {"name": "storage.type.poke"},
+					"2": {"name": "entity.name.function.poke"}
+				}
+			}
+		]},
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.poke",
@@ -28,13 +55,13 @@
 				"match": "\\b(load)\\b"
 			},{
 				"name": "storage.type.poke",
-				"match": "\\b(struct|union|void|var|any|offset|string)\\b"
+				"match": "\\b(type|struct|union|method|fun|unit|void|var|any|offset|string)\\b"
 			},{
 				"name": "storage.modifier.poke",
 				"match": "\\b(computed|pinned)\\b"
 			},{
 				"name": "constant.numeric.poke",
-				"match": "\\b([0-9_]+|0x[0-9a-fA-F_]+|0b[01_]+)([Uu]?[TtlLhH]?|[TtlLhH]?[Uu]?)\\b"
+				"match": "\\b(0b[01][01_]*|[1-9][0-9_]*|(0o)?[0-7][0-7_]*|0x[0-9a-fA-F][0-9a-fA-F_]*)([Uu]?[TtBbNnHhLl]?|[TtBbNnHhLl]?[Uu]?)\\b"
 			},{
 				"name": "constant.language.poke",
 				"match": "\\b(OFFSET)\\b"
@@ -75,33 +102,6 @@
 			},{
 				"name": "support.constant.poke",
 				"match": "\\b(b|N|B|Kb|Mb|Gb|KB|MB|GB|KiB|MiB|GiB)\\b"
-			}
-		]},
-		"entities": {
-			"patterns": [{
-				"match": "\\b(type)\\s+(\\w+)\\b",
-				"captures": {
-					"1": {"name": "storage.type.poke"},
-					"2": {"name": "entity.name.type.poke"}
-				}
-			},{
-				"match": "\\b(unit)\\s+(\\w+)\\b",
-				"captures": {
-					"1": {"name": "storage.type.poke"},
-					"2": {"name": "entity.name.type.poke"}
-				}
-			},{
-				"match": "\\b(method)\\s+(\\w+)\\b",
-				"captures": {
-					"1": {"name": "storage.type.poke"},
-					"2": {"name": "entity.name.method.poke"}
-				}
-			},{
-				"match": "\\b(fun)\\s+(\\w+)\\b",
-				"captures": {
-					"1": {"name": "storage.type.poke"},
-					"2": {"name": "entity.name.function.poke"}
-				}
 			}
 		]}
 	},
