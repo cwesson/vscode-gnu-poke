@@ -6,4 +6,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
-- Initial release
+### Added
+
+* Basic syntax highlighting
+* Type definition snippet
+* Pretty-printer snippet

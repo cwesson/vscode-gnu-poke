@@ -1,0 +1,12 @@
+{
+  "Type Definition": {
+    "prefix": ["type"],
+    "body": ["type My_Type =", "  struct", "  {", "", "  };"],
+    "description": "A type definition."
+  },
+  "Pretty Printer": {
+    "prefix": ["pretty-printer", "_print"],
+    "body": ["method _print = void:", "{", "  print (\"#<\\n\");", "", "  print (\">\\n\");", "}"],
+    "description": "A pretty-printer method."
+  }
+}

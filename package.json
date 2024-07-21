@@ -10,7 +10,7 @@
     "vscode": "^1.91.0"
   },
   "categories": [
-    "Programming Languages"
+    "Programming Languages", "Snippets"
   ],
   "repository": {
     "type": "git",
@@ -27,6 +27,10 @@
       "language": "poke",
       "scopeName": "source.pk",
       "path": "./syntaxes/poke.tmLanguage.json"
+    }],
+    "snippets": [{
+        "language": "poke",
+        "path": "./snippets/snippets.json"
     }]
   }
 }
