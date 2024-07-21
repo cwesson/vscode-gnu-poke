@@ -10,6 +10,9 @@
 		},
 		{
 			"include": "#library"
+		},
+		{
+			"include": "#entities"
 		}
 	],
 	"repository": {
@@ -21,14 +24,17 @@
 				"name": "keyword.operator.poke",
 				"match": "\\b(as|in|typeof|isa)\\b"
 			},{
+				"name": "keyword.other.poke",
+				"match": "\\b(load)\\b"
+			},{
 				"name": "storage.type.poke",
-				"match": "\\b(type|struct|union|unit|void|var|method|fun|any|offset|string)\\b"
+				"match": "\\b(struct|union|void|var|any|offset|string)\\b"
 			},{
 				"name": "storage.modifier.poke",
 				"match": "\\b(computed|pinned)\\b"
 			},{
 				"name": "constant.numeric.poke",
-				"match": "\\b-?([0-9_]+|0x[0-9a-fA-F_]+|0b[01_]+)([UuTtlLhH]*)\\b"
+				"match": "\\b([0-9_]+|0x[0-9a-fA-F_]+|0b[01_]+)([Uu]?[TtlLhH]?|[TtlLhH]?[Uu]?)\\b"
 			},{
 				"name": "constant.language.poke",
 				"match": "\\b(OFFSET)\\b"
@@ -45,7 +51,7 @@
 				"end": "\\*/"
 			},{
 				"name": "keyword.operator.poke",
-				"match": "(\\+|-|/|\\*|%|/\\^|=|==|!=|>=|<=|>|<|#|@|\\.>>|<<\\.|:::|:|;|&|\\||\\^|~|!|,|')"
+				"match": "(\\+|-|/|\\*|%|/\\^|=|==|!=|>=|<=|>|<|#|@|\\.>>|<<\\.|:::|:|\\?|;|&|\\||\\^|~|!|,|'|\\.)"
 			}]
 		},
 		"strings": {
@@ -60,16 +66,42 @@
 			]
 		},
 		"library": {
-			"patterns": [
-			{
+			"patterns": [{
 				"name": "support.type.poke",
 				"match": "\\b(bit|nibble|uint8|byte|char|uint16|ushort|uint32|uint|uint64|ulong|int8|int16|short|int32|int|int64|long|off64|uoff64)\\b"
 			},{
 				"name": "support.function.poke",
-				"match": "\\b(open|opensub|openproc|close|flush|get_ios|set_ios|iosearch|iolist|openset|iosize|iohandler|ioflags|print|printf|catos|stoca|strtoi|atoi|ltos|stof|stod|reverse|ltrim|rtrim|strchr|strrchr|strstr|strtok|eoffset|with_cur_ios|with_temp_ios|qsort|crc32|alignto)\\b"
+				"match": "\\b(open|opensub|openproc|close|flush|get_ios|set_ios|iosearch|iolist|openset|iosize|iohandler|ioflags|print|printf|catos|stoca|strtoi|atoi|ltos|stof|stod|reverse|ltrim|rtrim|strchr|strrchr|strstr|strtok|eoffset|with_cur_ios|with_temp_ios|qsort|crc32|alignto|getenv|rand|srand)\\b"
 			},{
 				"name": "support.constant.poke",
-				"match": "\\b(b|N|B|kb|Mb|Gb|KB|MB|GB|KiB|MiB|GiB)\\b"
+				"match": "\\b(b|N|B|Kb|Mb|Gb|KB|MB|GB|KiB|MiB|GiB)\\b"
+			}
+		]},
+		"entities": {
+			"patterns": [{
+				"match": "\\b(type)\\s+(\\w+)\\b",
+				"captures": {
+					"1": {"name": "storage.type.poke"},
+					"2": {"name": "entity.name.type.poke"}
+				}
+			},{
+				"match": "\\b(unit)\\s+(\\w+)\\b",
+				"captures": {
+					"1": {"name": "storage.type.poke"},
+					"2": {"name": "entity.name.type.poke"}
+				}
+			},{
+				"match": "\\b(method)\\s+(\\w+)\\b",
+				"captures": {
+					"1": {"name": "storage.type.poke"},
+					"2": {"name": "entity.name.method.poke"}
+				}
+			},{
+				"match": "\\b(fun)\\s+(\\w+)\\b",
+				"captures": {
+					"1": {"name": "storage.type.poke"},
+					"2": {"name": "entity.name.function.poke"}
+				}
 			}
 		]}
 	},
