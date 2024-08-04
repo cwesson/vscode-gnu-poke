@@ -58,10 +58,10 @@
 				"match": "\\b(type|struct|union|method|fun|unit|void|var|any|offset|string)\\b"
 			},{
 				"name": "storage.modifier.poke",
-				"match": "\\b(computed|pinned)\\b"
+				"match": "\\b(computed|pinned|big|little)\\b"
 			},{
 				"name": "constant.numeric.poke",
-				"match": "\\b(0b[01][01_]*|[1-9][0-9_]*|(0o)?[0-7][0-7_]*|0x[0-9a-fA-F][0-9a-fA-F_]*)([Uu]?[TtBbNnHhLl]?|[TtBbNnHhLl]?[Uu]?)\\b"
+				"match": "\\b([1-9][0-9_]*|0(b[01][01_]*|o?[0-7][0-7_]*|x[0-9a-fA-F][0-9a-fA-F_]*)?)([Uu]?[TtBbNnHhLl]?|[TtBbNnHhLl]?[Uu]?)\\b"
 			},{
 				"name": "constant.language.poke",
 				"match": "\\b(OFFSET)\\b"
@@ -98,7 +98,7 @@
 				"match": "\\b(bit|nibble|uint8|byte|char|uint16|ushort|uint32|uint|uint64|ulong|int8|int16|short|int32|int|int64|long|off64|uoff64)\\b"
 			},{
 				"name": "support.function.poke",
-				"match": "\\b(open|opensub|openproc|close|flush|get_ios|set_ios|iosearch|iolist|openset|iosize|iohandler|ioflags|print|printf|catos|stoca|strtoi|atoi|ltos|stof|stod|reverse|ltrim|rtrim|strchr|strrchr|strstr|strtok|eoffset|with_cur_ios|with_temp_ios|qsort|crc32|alignto|getenv|rand|srand)\\b"
+				"match": "\\b(format|open|opensub|openproc|close|flush|get_ios|set_ios|iosearch|iolist|openset|iosize|iohandler|ioflags|print|printf|catos|stoca|strtoi|atoi|ltos|stof|stod|reverse|ltrim|rtrim|strchr|strrchr|strstr|strtok|eoffset|with_cur_ios|with_temp_ios|qsort|crc32|alignto|getenv|rand|srand)\\b"
 			},{
 				"name": "support.constant.poke",
 				"match": "\\b(b|N|B|Kb|Mb|Gb|KB|MB|GB|KiB|MiB|GiB)\\b"
