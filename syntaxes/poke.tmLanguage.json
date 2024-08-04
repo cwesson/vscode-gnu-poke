@@ -3,6 +3,9 @@
 	"name": "Poke",
 	"patterns": [
 		{
+			"include": "#maps"
+		},
+		{
 			"include": "#entities"
 		},
 		{
@@ -103,7 +106,19 @@
 				"name": "support.constant.poke",
 				"match": "\\b(b|N|B|Kb|Mb|Gb|KB|MB|GB|KiB|MiB|GiB)\\b"
 			}
-		]}
+		]},
+		"maps": {
+			"patterns": [{
+				"name": "keyword.other.poke.map",
+				"match": "^(%(entry|name|type|condition|offset))\\b"
+			},{
+				"name": "keyword.other.poke.map.entries",
+				"match": "^(%%)$"
+			},{
+				"name": "keyword.operator.poke.map.",
+				"match": "(\\$)"
+			}]
+		}
 	},
 	"scopeName": "source.pk"
 }

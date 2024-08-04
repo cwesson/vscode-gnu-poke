@@ -20,7 +20,7 @@
     "languages": [{
       "id": "poke",
       "aliases": ["Poke", "poke", "GNU poke"],
-      "extensions": [".pk"],
+      "extensions": [".pk", ".map"],
       "configuration": "./language-configuration.json"
     }],
     "grammars": [{
