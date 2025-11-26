@@ -49,16 +49,16 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.poke",
-				"match": "\\b(if|else|while|for|return|try|catch|raise|until|assert)\\b"
+				"match": "\\b(if|else|while|for|continue|break|return|try|catch|raise|until|assert)\\b"
 			},{
 				"name": "keyword.operator.poke",
-				"match": "\\b(as|in|typeof|isa)\\b"
+				"match": "\\b(as|in|isa)\\b"
 			},{
 				"name": "keyword.other.poke",
-				"match": "\\b(load)\\b"
+				"match": "\\b(load|'length|'size|'signed|'offset|'mapped|'strict|'elem\\(\\d+\\)|'eoffset\\(\\d+\\)|'esize\\(\\d+\\)|'ename\\(\\d+\\))\\b"
 			},{
 				"name": "storage.type.poke",
-				"match": "\\b(type|struct|union|method|fun|unit|void|var|any|offset|string)\\b"
+				"match": "\\b(type|struct|union|method|fun|unit|void|var|any|offset|string|typeof)\\b"
 			},{
 				"name": "storage.modifier.poke",
 				"match": "\\b(computed|pinned|big|little)\\b"
@@ -81,17 +81,68 @@
 				"end": "\\*/"
 			},{
 				"name": "keyword.operator.poke",
-				"match": "(\\+|-|/|\\*|%|/\\^|=|==|!=|>=|<=|>|<|#|@|\\.>>|<<\\.|:::|:|\\?|;|&|\\||\\^|~|!|,|'|\\.)"
+				"match": "(\\+|-|/|\\*|%|/\\^|=|==|!=|>=|<=|>|<|#|@|\\.>>|<<\\.|:::|:|\\?|;|&|\\||\\^|~|!|,|\\.)"
 			}]
 		},
 		"strings": {
-			"name": "string.quoted.double.poke",
-			"begin": "\"",
-			"end": "\"",
+			"patterns": [{
+				"name": "string.quoted.double.poke",
+				"begin": "\"",
+				"end": "\"",
+				"patterns": [{
+					"include": "#escapechar"
+				},{
+					"include": "#formatstring"
+				}]
+			},{
+				"name": "string.quoted.single.poke",
+				"begin": "'",
+				"end": "'",
+				"patterns": [{
+					"include": "#escapechar"
+				}]
+			}]
+		},
+		"escapechar": {
 			"patterns": [
 				{
 					"name": "constant.character.escape.poke",
-					"match": "\\\\"
+					"match": "\\\\([\"'\\\\/ntrfb]|x[0-9a-fA-F]{1,2}|[0-7]{1,3})"
+				},{
+					"name": "invalid.illegal.string-escape.poke",
+					"match": "\\\\."
+				}
+			]
+		},
+		"formatstring": {
+			"patterns": [
+				{
+					"name": "constant.language.poke",
+					"match": "%s"
+				},{
+					"name": "constant.language.poke",
+					"match": "%c"
+				},{
+					"name": "constant.language.poke",
+					"match": "%v"
+				},{
+					"name": "constant.numeric.poke",
+					"match": "%(i|u)\\d+(d|x|o|b|c)"
+				},{
+					"name": "constant.numeric.poke",
+					"match": "%(f|e|g)\\d+(\\.\\d+)+d"
+				},{
+					"name": "constant.language.poke",
+					"match": "%<[\\w-]+:"
+				},{
+					"name": "constant.language.poke",
+					"match": "%>"
+				},{
+					"name": "constant.language.poke",
+					"match": "%%"
+				},{
+					"name": "invalid.illegal.string-format.poke",
+					"match": "%."
 				}
 			]
 		},
