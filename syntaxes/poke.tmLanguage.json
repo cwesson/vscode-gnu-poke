@@ -44,18 +44,24 @@
 					"1": {"name": "storage.type.poke"},
 					"2": {"name": "entity.name.function.poke"}
 				}
+			},{
+				"match": "\\b(var)\\s+(\\w+)\\b",
+				"captures": {
+					"1": {"name": "storage.type.poke"},
+					"2": {"name": "entity.name.variable.poke"}
+				}
 			}
 		]},
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.poke",
-				"match": "\\b(if|else|while|for|continue|break|return|try|catch|raise|until|assert)\\b"
+				"match": "\\b(if|else|while|for|continue|break|return|try|catch|raise|until|assert|load|asm)\\b"
 			},{
 				"name": "keyword.operator.poke",
-				"match": "\\b(as|in|isa)\\b"
+				"match": "\\b(as|in|where|isa)\\b"
 			},{
 				"name": "keyword.other.poke",
-				"match": "\\b(load|'length|'size|'signed|'offset|'mapped|'strict|'elem\\(\\d+\\)|'eoffset\\(\\d+\\)|'esize\\(\\d+\\)|'ename\\(\\d+\\))\\b"
+				"match": "'(length|size|signed|offset|mapped|strict|elem\\(\\d+\\)|eoffset\\(\\d+\\)|esize\\(\\d+\\)|ename\\(\\d+\\))\\b"
 			},{
 				"name": "storage.type.poke",
 				"match": "\\b(type|struct|union|method|fun|unit|void|var|any|offset|string|typeof)\\b"
@@ -67,7 +73,10 @@
 				"match": "\\b([1-9][0-9_]*|0(b[01][01_]*|o?[0-7][0-7_]*|x[0-9a-fA-F][0-9a-fA-F_]*)?)([Uu]?[TtBbNnHhLl]?|[TtBbNnHhLl]?[Uu]?)\\b"
 			},{
 				"name": "constant.language.poke",
-				"match": "\\b(OFFSET)\\b"
+				"match": "\\b(OFFSET|ENDIAN_LITTLE|ENDIAN_BIG)\\b"
+			},{
+				"name": "constant.language.poke",
+				"match": "\\bEC?_(generic|out_of_bounds|eof|elem|constraint|conv|map|div_by_zero|no_ios|no_return|io|io_flags|assert|overflow|perm|stack)\\b"
 			},{
 				"name": "comment.line.double-dash.poke",
 				"match": "\\/\\/.*$\\n?"
@@ -138,7 +147,7 @@
 					"name": "constant.language.poke",
 					"match": "%>"
 				},{
-					"name": "constant.language.poke",
+					"name": "constant.character.poke",
 					"match": "%%"
 				},{
 					"name": "invalid.illegal.string-format.poke",
