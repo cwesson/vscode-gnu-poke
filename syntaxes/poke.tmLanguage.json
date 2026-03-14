@@ -61,7 +61,7 @@
 				"match": "\\b(as|in|where|isa)\\b"
 			},{
 				"name": "keyword.other.poke",
-				"match": "'(length|size|signed|offset|mapped|strict|elem\\(\\d+\\)|eoffset\\(\\d+\\)|esize\\(\\d+\\)|ename\\(\\d+\\))\\b"
+				"match": "'(length|size|signed|offset|mapped|strict|elem|eoffset|esize|ename|magnitude|unit|ref)\\b"
 			},{
 				"name": "storage.type.poke",
 				"match": "\\b(type|struct|union|method|fun|unit|void|var|any|offset|string|typeof)\\b"

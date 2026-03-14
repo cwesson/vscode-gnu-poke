@@ -10,27 +10,56 @@
     "vscode": "^1.91.0"
   },
   "categories": [
-    "Programming Languages", "Snippets"
+    "Programming Languages",
+    "Snippets"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/cwesson/vscode-gnu-poke"
   },
   "contributes": {
-    "languages": [{
-      "id": "poke",
-      "aliases": ["Poke", "poke", "GNU poke"],
-      "extensions": [".pk", ".map"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "poke",
-      "scopeName": "source.pk",
-      "path": "./syntaxes/poke.tmLanguage.json"
-    }],
-    "snippets": [{
+    "languages": [
+      {
+        "id": "poke",
+        "aliases": [
+          "Poke",
+          "poke",
+          "GNU poke"
+        ],
+        "extensions": [
+          ".pk",
+          ".map"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "poke",
+        "scopeName": "source.pk",
+        "path": "./syntaxes/poke.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
         "language": "poke",
         "path": "./snippets/snippets.json"
-    }]
+      }
+    ]
+  },
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "tsc": "^2.0.4",
+    "typescript": "^5.9.3",
+    "vscode": "^1.1.37"
   }
 }

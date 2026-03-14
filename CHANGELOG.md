@@ -9,5 +9,6 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Added
 
 * Basic syntax highlighting
+* Code outline support
 * Type definition snippet
 * Pretty-printer snippet

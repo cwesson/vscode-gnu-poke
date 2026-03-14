@@ -1,4 +1,4 @@
-name: vscode-poke build
+name: vscode-gnu-poke build
 
 on: [push, pull_request]
 

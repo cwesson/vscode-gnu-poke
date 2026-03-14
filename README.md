@@ -4,6 +4,7 @@ GNU poke language support for VS Code.
 ## Features
 
 * GNU poke syntax highlighting
+* Code outline
 * Snippets for poke
 
 ## Release Notes
